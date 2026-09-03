@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Stargazer's Ledger</title>
+<meta name="description" content="An incremental game of forbidden knowledge, fraying sanity, and things best left beneath the waves.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#128065;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <h1>The Stargazer's Ledger</h1>
+    <p class="subtitle">being a true &amp; faithful account of one scholar's descent</p>
+  </div>
+</header>
+
+<main class="ledger">
+
+  <section class="vitals" aria-label="Resources">
+    <div class="vital-row">
+      <div class="vital insight-vital">
+        <span class="vital-label">Insight</span>
+        <span class="vital-value" id="insight-value">0</span>
+        <span class="vital-rate" id="insight-rate">+0/s</span>
+      </div>
+      <div class="vital oldblood-vital" id="oldblood-vital" hidden>
+        <span class="vital-label">Old Blood</span>
+        <span class="vital-value" id="oldblood-value">0</span>
+        <span class="vital-rate">×<span id="oldblood-mult">1.00</span> favor</span>
+      </div>
+    </div>
+    <div class="sanity-row">
+      <span class="vital-label">Sanity</span>
+      <div class="sanity-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="sanity-track">
+        <div class="sanity-fill" id="sanity-fill"></div>
+      </div>
+      <span class="sanity-value" id="sanity-value">100</span>
+      <span class="sanity-note" id="sanity-note"></span>
+    </div>
+  </section>
+
+  <section class="focus" aria-label="The reading">
+    <div class="sigil-wrap">
+      <button class="sigil-button" id="click-target" aria-label="Gaze into the void">
+        <svg class="sigil" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <circle class="sigil-ring outer" cx="100" cy="100" r="92"></circle>
+          <circle class="sigil-ring inner" cx="100" cy="100" r="66"></circle>
+          <g class="sigil-marks">
+            <path d="M100 8 L100 34"></path>
+            <path d="M100 166 L100 192"></path>
+            <path d="M8 100 L34 100"></path>
+            <path d="M166 100 L192 100"></path>
+            <path d="M35 35 L52 52"></path>
+            <path d="M148 148 L165 165"></path>
+            <path d="M165 35 L148 52"></path>
+            <path d="M52 148 L35 165"></path>
+          </g>
+          <g class="eye">
+            <path class="eye-lid" d="M35 100 Q100 60 165 100 Q100 140 35 100 Z"></path>
+            <circle class="eye-iris" cx="100" cy="100" r="20"></circle>
+            <circle class="eye-pupil" cx="100" cy="100" r="8"></circle>
+          </g>
+        </svg>
+      </button>
+      <p class="click-caption">Gaze into the void</p>
+      <p class="click-power">+<span id="click-power">0</span> insight per gaze</p>
+    </div>
+
+    <div class="margin-log" aria-label="Marginalia">
+      <h2>Marginalia</h2>
+      <ul id="log-list" aria-live="polite"></ul>
+    </div>
+  </section>
+
+  <section class="acquisitions" aria-label="Acquisitions">
+    <h2>Acquisitions</h2>
+    <p class="section-note">Things purchased, summoned, or otherwise brought into one's possession.</p>
+    <div class="building-list" id="building-list"></div>
+  </section>
+
+  <section class="rites" aria-label="Rites">
+    <h2>Rites</h2>
+    <p class="section-note">Practices that cannot be unlearned.</p>
+    <div class="upgrade-list" id="upgrade-list"></div>
+  </section>
+
+  <section class="awakening" aria-label="The Awakening">
+    <h2>The Awakening</h2>
+    <p class="section-note" id="awakening-note">Some knowledge cannot survive a single lifetime. To go further, one must let this self dissolve, and begin again with less to lose.</p>
+    <button class="awaken-button" id="awaken-button" disabled>Dissolve the Self</button>
+    <p class="awaken-preview" id="awaken-preview"></p>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <p>Progress is recorded automatically in this browser. <button class="link-button" id="reset-button">Burn the ledger</button></p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="game.js"></script>
+</body>
+</html>
