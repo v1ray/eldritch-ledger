@@ -4,7 +4,7 @@ A small incremental game about forbidden knowledge, fraying sanity, and the thin
 
 Gaze into the sigil to gather Insight. Spend it on candles, tomes, cultists, and stranger acquisitions that gather Insight for you while you're away. Watch your Sanity — low Sanity sharpens your mind's grip on the impossible (a production bonus) but frays the edges of the page. When you've read enough to no longer survive as yourself, dissolve the self and begin again, a little steadier, with the favor of Old Blood carried forward.
 
-**[Play it here](#)** — GitHub Pages URL added after first deploy.
+**[Play it here](https://v1ray.github.io/eldritch-ledger/)**
 
 ## Running locally
 
